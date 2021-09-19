@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#">Call-Center</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/admin/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/admin/dashboard/addUser">Add User</a>
+         </div>
+        </div>
+        </div>
+      </nav>
+
+      
+      <div class="container mt-5">
+      <table class="table table-dark">
+        <thead class="thead-dark">
+          <tr>           
+            <th scope="col">FISH</th>
+            <th scope="col">Nomer</th>
+            <th scope="col">Manzil</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user) => { %>
+                <tr>            
+                    <td><%= user.fullName %></td>
+                    <td><%= user.number %></td>
+                    <td><%= user.location %></td>
+                    <td><%= user.data %></td>
+                    <td><a href="/admin/dashboard/delete/<%= user._id %>"  class="btn btn-danger">Delete</a> <a href="/admin/dashboard/update/<%= user._id %>" class="btn btn-primary">Update</a></td>
+                  </tr>
+              <% }); %>
+        </tbody>
+      </table>
+      </div>
+    </body>
+</html>
